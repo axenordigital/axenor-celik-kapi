@@ -1,468 +1,252 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AXENOR Çelik Kapı</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXENOR Çelik Kapı</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #fff;
-      line-height: 1.6;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#080808;color:#fff}
+html{scroll-behavior:smooth}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(10, 10, 10, 0.95);
-      border-bottom: 1px solid #222;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header{
+position:sticky;top:0;z-index:99;
+display:flex;justify-content:space-between;align-items:center;
+padding:22px 8%;background:rgba(8,8,8,.92);backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08)
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+.logo{font-size:28px;font-weight:800;letter-spacing:1px}
+.logo span{color:#c9963e;font-size:15px;display:block;letter-spacing:3px;margin-top:-4px}
 
-    .logo span {
-      color: #d49a32;
-    }
+nav a{color:#fff;text-decoration:none;margin-left:28px;font-size:13px;font-weight:700}
+nav a:hover{color:#c9963e}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+.hero{
+min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;
+padding:80px 8%;
+background:
+linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.6)),
+url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;background-position:center;
+}
 
-    .hero {
-      min-height: 90vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 70px 8%;
-      gap: 50px;
-      background: radial-gradient(circle at right, #1f1f1f, #050505 60%);
-    }
+.hero small{color:#c9963e;font-weight:800;letter-spacing:3px}
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:76px;line-height:.95;margin:18px 0 26px;
+}
+.hero h1 span{color:#c9963e}
+.hero p{font-size:18px;color:#d7d7d7;max-width:560px;margin-bottom:34px}
 
-    .hero h1 {
-      font-size: 64px;
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+padding:16px 28px;border-radius:4px;text-decoration:none;font-weight:800;font-size:14px;
+letter-spacing:.5px;transition:.3s
+}
+.btn.gold{background:#c9963e;color:#111}
+.btn.outline{border:1px solid #c9963e;color:#fff}
+.btn:hover{transform:translateY(-3px)}
 
-    .hero h1 span {
-      color: #d49a32;
-    }
+.hero-panel{
+background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+padding:28px;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.5)
+}
 
-    .hero p {
-      color: #cfcfcf;
-      font-size: 18px;
-      max-width: 520px;
-      margin-bottom: 30px;
-    }
+.hero-door{
+height:520px;border-radius:22px;
+background:
+linear-gradient(90deg,#111 0 10%,#2c2c2c 10% 13%,#0f0f0f 13% 87%,#2c2c2c 87% 90%,#111 90%),
+linear-gradient(135deg,#151515,#000);
+border:10px solid #2a2a2a;position:relative;overflow:hidden;
+}
+.hero-door:before{
+content:"";position:absolute;inset:35px 80px;
+border:2px solid rgba(201,150,62,.5)
+}
+.hero-door:after{
+content:"";position:absolute;right:145px;top:210px;width:9px;height:120px;
+background:#c9963e;border-radius:20px;box-shadow:0 0 20px #c9963e
+}
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+section{padding:90px 8%}
+.light{background:#f6f4ef;color:#111}
 
-    .btn {
-      display: inline-block;
-      padding: 15px 26px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #d49a32;
-    }
+.title{text-align:center;margin-bottom:55px}
+.title small{color:#c9963e;font-weight:800;letter-spacing:3px}
+.title h2{font-family:'Playfair Display',serif;font-size:46px;margin-top:10px}
 
-    .btn.gold {
-      background: #d49a32;
-      color: #111;
-    }
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.product{
+background:#fff;border-radius:18px;overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,.14);transition:.3s
+}
+.product:hover{transform:translateY(-8px)}
+.product-img{
+height:285px;background-size:cover;background-position:center;position:relative
+}
+.product-img:after{
+content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent)
+}
+.p1{background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80')}
+.p2{background-image:url('https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=900&q=80')}
+.p3{background-image:url('https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=900&q=80')}
+.p4{background-image:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80')}
 
-    .btn.dark {
-      color: #fff;
-    }
+.product-content{padding:26px;text-align:center}
+.product-content h3{font-size:20px;margin-bottom:10px}
+.product-content p{color:#555;font-size:14px}
 
-    .door-card {
-      background: linear-gradient(145deg, #181818, #050505);
-      border: 1px solid #333;
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-      text-align: center;
-    }
+.features{background:#080808}
+.features .title h2{color:#fff}
+.feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.feature{
+padding:30px 22px;text-align:center;border:1px solid rgba(255,255,255,.1);
+border-radius:18px;background:linear-gradient(180deg,#141414,#090909)
+}
+.feature div{font-size:34px;margin-bottom:14px}
+.feature h3{color:#c9963e;font-size:15px;margin-bottom:10px}
+.feature p{color:#bbb;font-size:14px}
 
-    .door-visual {
-      height: 460px;
-      border-radius: 20px;
-      background:
-        linear-gradient(90deg, #111 0 12%, #2b2b2b 12% 16%, #111 16% 84%, #2b2b2b 84% 88%, #111 88%),
-        linear-gradient(#222, #000);
-      border: 8px solid #2a2a2a;
-      position: relative;
-      overflow: hidden;
-    }
+.about{
+display:grid;grid-template-columns:1fr 1fr;gap:45px;background:#111
+}
+.about h2{font-family:'Playfair Display',serif;color:#c9963e;font-size:38px;margin-bottom:18px}
+.about p{color:#ccc;margin-bottom:14px}
 
-    .door-visual::before {
-      content: "";
-      position: absolute;
-      right: 35%;
-      top: 0;
-      width: 2px;
-      height: 100%;
-      background: #d49a32;
-      opacity: 0.7;
-    }
+.contact{
+background:#191919;border:1px solid #2b2b2b;border-radius:22px;padding:34px
+}
+.contact p{font-size:16px;margin-bottom:15px}
 
-    .door-visual::after {
-      content: "";
-      position: absolute;
-      right: 28%;
-      top: 45%;
-      width: 8px;
-      height: 90px;
-      background: #d49a32;
-      border-radius: 10px;
-    }
+.whatsapp{
+position:fixed;right:22px;bottom:22px;background:#25d366;color:#fff;
+padding:16px 22px;border-radius:50px;text-decoration:none;font-weight:800;
+box-shadow:0 12px 30px rgba(0,0,0,.35);z-index:100
+}
 
-    section {
-      padding: 80px 8%;
-    }
+footer{text-align:center;padding:28px;background:#050505;color:#777;font-size:14px}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title small {
-      color: #d49a32;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .section-title h2 {
-      font-size: 38px;
-      margin-top: 10px;
-      color: #111;
-    }
-
-    .light {
-      background: #f5f5f5;
-      color: #111;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-
-    .product {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-      text-align: center;
-    }
-
-    .product-img {
-      height: 220px;
-      background:
-        linear-gradient(90deg, #222 0 20%, #111 20% 80%, #333 80%),
-        linear-gradient(#444, #111);
-      position: relative;
-    }
-
-    .product-img::after {
-      content: "";
-      position: absolute;
-      right: 35%;
-      top: 45px;
-      width: 7px;
-      height: 95px;
-      background: #d49a32;
-      border-radius: 10px;
-    }
-
-    .product-content {
-      padding: 22px;
-    }
-
-    .product h3 {
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      color: #555;
-      font-size: 14px;
-    }
-
-    .features {
-      background: #080808;
-    }
-
-    .features .section-title h2 {
-      color: #fff;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 25px;
-      text-align: center;
-    }
-
-    .feature {
-      border-left: 1px solid #333;
-      padding: 25px;
-    }
-
-    .feature h3 {
-      color: #d49a32;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    .about-contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      background: #111;
-      border-top: 1px solid #222;
-    }
-
-    .about-contact h2 {
-      color: #d49a32;
-      margin-bottom: 20px;
-    }
-
-    .contact-box {
-      background: #191919;
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid #333;
-    }
-
-    .contact-box p {
-      margin-bottom: 12px;
-      color: #ddd;
-    }
-
-    .whatsapp-fixed {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #25d366;
-      color: #fff;
-      padding: 15px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-
-    footer {
-      padding: 25px 8%;
-      background: #050505;
-      color: #777;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 8px;
-        font-size: 12px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .products,
-      .feature-grid,
-      .about-contact {
-        grid-template-columns: 1fr;
-      }
-
-      .door-visual {
-        height: 360px;
-      }
-    }
-  </style>
+@media(max-width:950px){
+header{flex-direction:column;gap:14px}
+nav a{margin:0 8px;font-size:11px}
+.hero{grid-template-columns:1fr;text-align:center}
+.hero h1{font-size:48px}
+.hero p{margin:auto auto 30px}
+.btns{justify-content:center}
+.products,.feature-grid,.about{grid-template-columns:1fr}
+.hero-door{height:380px}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">AXENOR <span>ÇELİK KAPI</span></div>
-  <nav>
-    <a href="#anasayfa">ANASAYFA</a>
-    <a href="#urunler">ÜRÜNLER</a>
-    <a href="#neden">NEDEN AXENOR?</a>
-    <a href="#iletisim">İLETİŞİM</a>
-  </nav>
+<div class="logo">AXENOR <span>ÇELİK KAPI</span></div>
+<nav>
+<a href="#anasayfa">ANASAYFA</a>
+<a href="#urunler">ÜRÜNLER</a>
+<a href="#neden">NEDEN BİZ?</a>
+<a href="#iletisim">İLETİŞİM</a>
+</nav>
 </header>
 
 <section class="hero" id="anasayfa">
-  <div>
-    <h1>GÜVENLİĞİ <br><span>ESTETİKLE</span><br> BULUŞTURUYORUZ</h1>
-    <p>
-      Modern tasarım anlayışı, yüksek güvenlik standartları ve özel üretim
-      çözümleriyle yaşam alanlarınıza değer katıyoruz.
-    </p>
+<div>
+<small>PREMIUM ÇELİK KAPI ÇÖZÜMLERİ</small>
+<h1>Güvenliği <br><span>Estetikle</span><br>Buluşturuyoruz</h1>
+<p>Modern tasarım, yüksek güvenlik ve özel üretim çelik kapı çözümleriyle yaşam alanlarınıza güçlü bir ilk izlenim katıyoruz.</p>
+<div class="btns">
+<a class="btn gold" href="#iletisim">TEKLİF AL</a>
+<a class="btn outline" href="#urunler">MODELLERİ İNCELE</a>
+</div>
+</div>
 
-    <div class="buttons">
-      <a class="btn gold" href="#iletisim">TEKLİF AL</a>
-      <a class="btn dark" href="#urunler">KATALOG İNCELE</a>
-    </div>
-  </div>
-
-  <div class="door-card">
-    <div class="door-visual"></div>
-  </div>
+<div class="hero-panel">
+<div class="hero-door"></div>
+</div>
 </section>
 
 <section class="light" id="urunler">
-  <div class="section-title">
-    <small>ÜRÜN SERİLERİMİZ</small>
-    <h2>Her Zevke Uygun Çelik Kapı Modelleri</h2>
-  </div>
+<div class="title">
+<small>ÜRÜN SERİLERİMİZ</small>
+<h2>Her Projeye Uygun Kapı Modelleri</h2>
+</div>
 
-  <div class="products">
-    <div class="product">
-      <div class="product-img"></div>
-      <div class="product-content">
-        <h3>AX-01 Villa</h3>
-        <p>Lüks villa projeleri için özel tasarım ve maksimum güvenlik.</p>
-      </div>
-    </div>
+<div class="products">
+<div class="product">
+<div class="product-img p1"></div>
+<div class="product-content">
+<h3>AX-01 Villa</h3>
+<p>Villa projeleri için premium görünüm ve maksimum güvenlik.</p>
+</div>
+</div>
 
-    <div class="product">
-      <div class="product-img"></div>
-      <div class="product-content">
-        <h3>AX Premium</h3>
-        <p>Premium detaylar, üstün kalite ve dayanıklı yapı.</p>
-      </div>
-    </div>
+<div class="product">
+<div class="product-img p2"></div>
+<div class="product-content">
+<h3>AX Premium</h3>
+<p>Modern detaylar, kaliteli malzeme ve dayanıklı yapı.</p>
+</div>
+</div>
 
-    <div class="product">
-      <div class="product-img"></div>
-      <div class="product-content">
-        <h3>AX Modern</h3>
-        <p>Modern çizgiler, minimal tasarım ve güçlü koruma.</p>
-      </div>
-    </div>
+<div class="product">
+<div class="product-img p3"></div>
+<div class="product-content">
+<h3>AX Modern</h3>
+<p>Minimal çizgiler, şık görünüm ve güçlü koruma.</p>
+</div>
+</div>
 
-    <div class="product">
-      <div class="product-img"></div>
-      <div class="product-content">
-        <h3>AX Elite</h3>
-        <p>Zarafeti ve güvenliği bir araya getiren özel seri.</p>
-      </div>
-    </div>
-  </div>
+<div class="product">
+<div class="product-img p4"></div>
+<div class="product-content">
+<h3>AX Elite</h3>
+<p>Zarafet, prestij ve güvenliği bir araya getiren özel seri.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section class="features" id="neden">
-  <div class="section-title">
-    <small>NEDEN AXENOR?</small>
-    <h2>Kaliteyi Detaylarda Yaşatıyoruz</h2>
-  </div>
+<div class="title">
+<small>NEDEN AXENOR?</small>
+<h2>Kaliteyi Detaylarda Yaşatıyoruz</h2>
+</div>
 
-  <div class="feature-grid">
-    <div class="feature">
-      <h3>YÜKSEK GÜVENLİK</h3>
-      <p>Çelik gövde ve dayanıklı kilit sistemleri.</p>
-    </div>
-
-    <div class="feature">
-      <h3>ÖZEL ÜRETİM</h3>
-      <p>Ölçü, renk ve tasarım seçenekleri.</p>
-    </div>
-
-    <div class="feature">
-      <h3>KALİTELİ MALZEME</h3>
-      <p>Uzun ömürlü kullanım için güçlü yapı.</p>
-    </div>
-
-    <div class="feature">
-      <h3>HIZLI TESLİMAT</h3>
-      <p>Zamanında teslimat ve montaj.</p>
-    </div>
-
-    <div class="feature">
-      <h3>GARANTİ & DESTEK</h3>
-      <p>Satış sonrası destek avantajı.</p>
-    </div>
-  </div>
+<div class="feature-grid">
+<div class="feature"><div>🛡️</div><h3>YÜKSEK GÜVENLİK</h3><p>Güçlendirilmiş gövde ve dayanıklı kilit sistemleri.</p></div>
+<div class="feature"><div>📐</div><h3>ÖZEL ÖLÇÜ</h3><p>Projeye özel ölçü, renk ve tasarım seçenekleri.</p></div>
+<div class="feature"><div>🏅</div><h3>KALİTELİ MALZEME</h3><p>Uzun ömürlü kullanım için premium malzeme.</p></div>
+<div class="feature"><div>🚚</div><h3>HIZLI TESLİMAT</h3><p>Zamanında teslimat ve profesyonel montaj.</p></div>
+<div class="feature"><div>🎧</div><h3>DESTEK</h3><p>Satış sonrası destek ve garanti avantajı.</p></div>
+</div>
 </section>
 
-<section class="about-contact" id="iletisim">
-  <div>
-    <h2>Hakkımızda</h2>
-    <p>
-      AXENOR ÇELİK KAPI, modern tasarım anlayışı ve güvenlik odaklı üretim
-      yaklaşımıyla yaşam alanlarına değer katmak için kurulmuştur.
-    </p>
-    <br>
-    <p>
-      Estetik, kalite ve dayanıklılığı bir araya getirerek projelere özel
-      çelik kapı çözümleri sunuyoruz.
-    </p>
-  </div>
+<section class="about" id="iletisim">
+<div>
+<h2>AXENOR Çelik Kapı</h2>
+<p>AXENOR ÇELİK KAPI, modern tasarım anlayışı ve güvenlik odaklı üretim yaklaşımıyla yaşam alanlarına değer katmak için kurulmuştur.</p>
+<p>Estetik, kalite ve dayanıklılığı bir araya getirerek projelere özel çelik kapı çözümleri sunuyoruz.</p>
+</div>
 
-  <div class="contact-box">
-    <h2>İletişim Bilgileri</h2>
-    <p>📞 +90 532 123 45 67</p>
-    <p>✉️ info@axenorcelikkapi.com</p>
-    <p>📍 İstanbul / Türkiye</p>
-    <p>🕒 Pazartesi - Cumartesi: 09:00 - 18:00</p>
-  </div>
+<div class="contact">
+<h2>İletişim</h2>
+<p>📞 +90 532 123 45 67</p>
+<p>✉️ info@axenorcelikkapi.com</p>
+<p>📍 İstanbul / Türkiye</p>
+<p>🕒 Pazartesi - Cumartesi: 09:00 - 18:00</p>
+</div>
 </section>
 
-<a class="whatsapp-fixed" href="https://wa.me/905321234567" target="_blank">
-  WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/905321234567" target="_blank">WhatsApp</a>
 
 <footer>
-  © 2026 AXENOR ÇELİK KAPI. Tüm hakları saklıdır.
+© 2026 AXENOR ÇELİK KAPI. Tüm hakları saklıdır.
 </footer>
 
 </body>
